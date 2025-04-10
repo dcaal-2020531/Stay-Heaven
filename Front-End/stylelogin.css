@@ -1,0 +1,235 @@
+/* Estilos generales para el cuerpo */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #000000, #1a1a1a);
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evita barras de desplazamiento no deseadas */
+  }
+  
+  /* Contenedor del formulario */
+  .form-container {
+    background: #111;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out; /* Animación más suave para el contenedor */
+    position: relative;
+  }
+  
+  /* Animación de desvanecimiento */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Estilos para las pestañas */
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 10px;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Estilo de las pestañas */
+  .tab {
+    flex: 1;
+    background: #333;
+    border: none;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    transition: background 0.3s ease;
+  }
+  
+  /* Pestaña activa */
+  .tab.active {
+    background: #d4af37;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Hover en las pestañas */
+  .tab:hover {
+    background: #444;
+  }
+  
+  /* Estilos para los formularios */
+  .form {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 0;
+    animation: slideIn 0.8s ease-out; /* Animación de deslizamiento más suave */
+  }
+  
+  /* Transición entre formularios */
+  .form.active {
+    display: flex;
+    opacity: 1;
+  }
+  
+  /* Animación de deslizamiento */
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Estilo de los campos de entrada */
+  input {
+    margin: 8px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: #444;
+    color: white;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input::placeholder {
+    color: #bbb;
+  }
+  
+  /* Efecto de foco en los campos de entrada */
+  input:focus {
+    background-color: #555;
+    box-shadow: 0 0 5px #d4af37;
+  }
+  
+  /* Estilo para el botón de submit */
+  button[type="submit"] {
+    background: #d4af37;
+    border: none;
+    color: black;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Efecto hover en el botón de submit */
+  button[type="submit"]:hover {
+    background: #c0c0c0;
+    color: black;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Estilo para el checkbox de captcha */
+  .captcha-box {
+    margin: 10px 0;
+    color: #bbb;
+    display: flex;
+    align-items: center;
+  }
+  
+  .captcha-box label {
+    font-size: 14px;
+  }
+  
+  .captcha-box input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+  }
+  
+  /* Estilos de los encabezados */
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: #d4af37;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  /* Estilo general para enlaces (si los hubiera) */
+  a {
+    color: #d4af37;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #c0c0c0;
+    text-decoration: underline;
+  }
+  
+  /* Respuesta al hover en los botones de pestañas */
+  .tab:hover {
+    background-color: #444;
+  }
+  
+  /* Asegura que el formulario se vea bien en pantallas pequeñas */
+  @media (max-width: 480px) {
+    .form-container {
+      width: 90%;
+      padding: 1rem;
+    }
+  
+    .tabs {
+      flex-direction: column;
+    }
+  
+    .tab {
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+  
+  /* Mejorando el calendario */
+  input[type="date"] {
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Estilo cuando el calendario está enfocado */
+  input[type="date"]:focus {
+    background-color: #555;
+    box-shadow: 0 0 5px #d4af37;
+  }
+  
+  /* Estilo para el calendario desplegable */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #d4af37;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover sobre el icono del calendario */
+  input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    background-color: #c0c0c0;
+  }
+  

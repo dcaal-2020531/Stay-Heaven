@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>HotelGestor - Panel Principal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="dashboard-body dark-theme">
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-hotel"></i> Stay Heaven
+    </div>
+    <ul class="nav-list">
+      <li><a href="habitaciones.html"><i class="fas fa-bed"></i> Habitaciones</a></li>
+      <li><a href="reservas.html"><i class="fas fa-calendar-check"></i> Reservas</a></li>
+      <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <button id="toggle-sidebar" class="hamburger-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>Bienvenido al Gestor Hotelero</h1>
+      <button id="toggle-theme" class="theme-toggle-btn">
+        <i class="fas fa-moon"></i> Cambiar Tema
+      </button>
+      <p>Aqui podemos poner texto de lo que queramos.</p>
+    </header>
+    <section class="cards">
+      <div class="card" onclick="location.href='habitaciones.html'">
+        <i class="fas fa-bed"></i>
+        <h3>Habitaciones</h3>
+      </div>
+      <div class="card"><i class="fas fa-user-friends"></i><h3>Clientes</h3></div>
+      <div class="card" onclick="location.href='reservas.html'"><i class="fas fa-calendar-check"></i><h3>Reservas</h3></div>
+      <div class="card"><i class="fas fa-file-invoice-dollar"></i><h3>Facturación</h3></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

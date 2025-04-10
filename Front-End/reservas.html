@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reservas - HotelGestor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-hotel"></i> HotelGestor
+    </div>
+    <ul class="nav-list">
+      <li><a href="dashboard.html"><i class="fas fa-home"></i> Inicio</a></li>
+      <li><a href="habitaciones.html"><i class="fas fa-bed"></i> Habitaciones</a></li>
+      <li><a href="reservas.html" class="active"><i class="fas fa-calendar-check"></i> Reservas</a></li>
+      <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <h1>Gestión de Reservas</h1>
+    </header>
+
+    <section class="form-section">
+      <h2>Agregar Reserva</h2>
+      <form class="form-inline">
+        <input type="text" placeholder="Nombre del Cliente" required>
+        <input type="text" placeholder="Número de Habitación" required>
+        <input type="date" required>
+        <input type="date" required>
+        <select required>
+          <option disabled selected>Estado</option>
+          <option>Activa</option>
+          <option>Finalizada</option>
+        </select>
+        <button type="submit">Agregar</button>
+      </form>
+    </section>
+
+    <section class="table-section">
+      <h2>Lista de Reservas</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Habitación</th>
+            <th>Entrada</th>
+            <th>Salida</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Juan Pérez</td><td>101</td><td>2025-04-01</td><td>2025-04-05</td><td>Activa</td></tr>
+          <tr><td>María Gómez</td><td>102</td><td>2025-03-20</td><td>2025-03-25</td><td>Finalizada</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>
