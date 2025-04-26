@@ -32,7 +32,7 @@ export const getEmployeeById = async (req, res) => {
 // Crear nuevo empleado
 export const createEmployee = async (req, res) => {
     try {
-        const { name, surname, email, password, role } = req.body;
+        const { name, surname, email, password } = req.body;
 
         // Encriptar contraseña
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -42,7 +42,6 @@ export const createEmployee = async (req, res) => {
             surname,
             email,
             password: hashedPassword,
-            role
         });
 
         await employee.save();
