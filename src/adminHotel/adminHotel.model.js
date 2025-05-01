@@ -1,22 +1,22 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model } from 'mongoose';
 
-const adminPlataformaSchema = Schema(
+const adminHotelSchema = new Schema(
     { 
         name: {
             type: String,
             required: [true, 'Name is required'],
-            maxLength: [25, `Can't overcome 25 characters`],
+            maxLength: [25, `Can't exceed 25 characters`],
         },
         surname: {
             type: String,
             required: [true, 'Surname is required'],
-            maxLength: [25, `Can't overcome 25 characters`],
+            maxLength: [25, `Can't exceed 25 characters`],
         },
         username: {
             type: String,
             required: [true, 'Username is required'],
             unique: true, 
-            maxLength: [20, `Can't overcome 20 characters`],
+            maxLength: [20, `Can't exceed 20 characters`],
         },
         email: {
             type: String,
@@ -31,8 +31,8 @@ const adminPlataformaSchema = Schema(
         },
         role: { 
             type: String,
-            enum: ['PLATFORM_ADMIN'], 
-            default: 'PLATFORM_ADMIN' 
+            enum: ['HOTEL_ADMIN'],
+            default: 'HOTEL_ADMIN' 
         },
         phone: {
             type: String,
@@ -41,9 +41,13 @@ const adminPlataformaSchema = Schema(
         status: {
             type: Boolean,
             default: true
+        },
+        hotel: {
+            type: Schema.Types.ObjectId,
+            ref: 'Hotel',
+            required: true
         }
     }
 )
 
-
-export default model('AdminPlataforma', adminPlataformaSchema)
+export default model('AdminHotel', adminHotelSchema);
