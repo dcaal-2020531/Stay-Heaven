@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose'
 
-const adminSchema = Schema(
+const adminPlataformaSchema = Schema(
     { 
         name: {
             type: String,
@@ -31,14 +31,18 @@ const adminSchema = Schema(
         },
         role: { 
             type: String, 
-            default: 'ADMIN' 
+            default: 'PLATFORM_ADMIN' 
         },
         phone: {
             type: number,
             required: [true, 'Phone is required']
+        },
+        status: {
+            type: Boolean,
+            default: true
         }
     }
 )
 
 
-export default model('Admin', adminSchema)
+export default model('AdminPlataforma', adminPlataformaSchema)
