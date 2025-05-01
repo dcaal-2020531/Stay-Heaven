@@ -7,7 +7,7 @@ export const test = (req, res) => {
 
 export const getAll = async (req,res) =>{
     try {
-        const hotels = await Hotel.find
+        const hotels = await Hotel.find()
         if (hotels.length === 0) {
             return res.status(404).send({ message: 'Students not found' });
         }
