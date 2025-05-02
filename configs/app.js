@@ -5,7 +5,7 @@ import morgan from 'morgan' //LOGS
 import helmet from 'helmet' //SEGURIDAD HTTP
 import cors from 'cors' //ACCESO AL API
 import empleadoRoutes from '../src/empleado/empleado.routes.js'
-
+import facturaRoutes from '../src/factura/factura.routes.js'
 
 const configs = (app)=>{
     app.use(express.json())
@@ -17,8 +17,8 @@ const configs = (app)=>{
 
 const routes = (app)=>{
     app.use('/v1/empleado', empleadoRoutes)
+    app.use('/v1/factura', facturaRoutes)
 }
-
 
 //ES NO ACEPTA EXPORTS CON .
 export const initServer = async()=>{
