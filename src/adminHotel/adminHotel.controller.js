@@ -1,4 +1,4 @@
-import AdminHotel from '../adminHotel/adminHotel.model.js'
+import AdminHotel from './adminHotel.model.js'
 import { encrypt } from '../../utils/encrypt.js'
 
 // Crear nuevo admin hotel

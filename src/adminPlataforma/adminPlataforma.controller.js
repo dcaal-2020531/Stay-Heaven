@@ -1,4 +1,4 @@
-import AdminPlataforma from '../adminPlataforma/adminPlataforma.model.js'
+import AdminPlataforma from './adminPlataforma.model.js'
 import { encrypt } from '../../utils/encrypt.js'
 
 // Crear nuevo admin plataforma
