@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from 'mongoose'
 
 const adminHotelSchema = new Schema(
     { 
@@ -50,4 +50,4 @@ const adminHotelSchema = new Schema(
     }
 )
 
-export default model('AdminHotel', adminHotelSchema);
+export default model('AdminHotel', adminHotelSchema)
