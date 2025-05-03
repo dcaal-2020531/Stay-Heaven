@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar Habitación</title>
+  <link rel="stylesheet" href="form_style.css">
+</head>
+<body>
+  <div class="content">
+    <h1>Agregar Habitación</h1>
+    <form class="card">
+      <label>Número:</label>
+      <input type="text" required><br><br>
+
+      <label>Tipo:</label>
+      <select required>
+        <option disabled selected>Selecciona</option>
+        <option>Simple</option>
+        <option>Doble</option>
+        <option>Suite</option>
+      </select><br><br>
+
+      <label>Precio por Noche:</label>
+      <input type="number" required><br><br>
+
+      <label>Estado:</label>
+      <select required>
+        <option disabled selected>Selecciona</option>
+        <option>Disponible</option>
+        <option>Ocupada</option>
+        <option>Mantenimiento</option>
+      </select><br><br>
+
+      <button type="submit" class="btn submit">Guardar</button>
+      <a href="habitaciones.html" class="btn cancel">Cancelar</a>
+    </form>
+  </div>
+</body>
+</html>

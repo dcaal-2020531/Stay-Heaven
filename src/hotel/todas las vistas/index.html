@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>HotelGestor - Login</title>
+  <link rel="stylesheet" href="stylelogin.css">
+  <script defer src="script2.js"></script>
+</head>
+<body class="login-body">
+  <div class="form-container">
+    <div class="tabs">
+      <button class="tab active" id="signin-tab">Iniciar Sesión</button>
+      <button class="tab" id="signup-tab">Registrarse</button>
+    </div>
+
+    <form id="signin-form" class="form active" onsubmit="goToDashboard(event)">
+      <h2>Iniciar Sesión</h2>
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="password" placeholder="Contraseña" required>
+      <div class="captcha-box">
+        <label><input type="checkbox" required> No soy un robot</label>
+      </div>
+      <button type="submit">Ingresar</button>
+    </form>
+
+    <form id="signup-form" class="form" onsubmit="handleRegister(event)">
+      <h2>Registro</h2>
+      <input type="text" placeholder="Nombres" required>
+      <input type="text" placeholder="Apellidos" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="password" placeholder="Contraseña" required>
+      <!-- Campo de edad con calendario desplegable y opción de escribir -->
+      <label for="birthdate">Fecha de nacimiento:</label>
+      <input type="date" id="birthdate" name="birthdate" required>
+      <input type="number" placeholder="Edad" id="age" name="age">
+      <div class="captcha-box">
+        <label><input type="checkbox" required> No soy un robot</label>
+      </div>
+      <button type="submit">Registrarse</button>
+    </form>
+  </div>
+</body>
+</html>
