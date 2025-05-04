@@ -4,7 +4,8 @@ import {
     getAllHabitaciones,
     getHabitacionById,
     updateHabitacion,
-    deleteHabitacion
+    deleteHabitacion,
+    reservarHabitacion
 } from './habitacion.controller.js'
 
 const api = Router();
@@ -29,14 +30,19 @@ api.get(
 
 // Actualizar habitación
 api.put(
-    '/:id', 
+    '/update/:id', 
     updateHabitacion
 )
 
-// Soft delete
-api.delete(
-    '/:id', 
+// Eliminar habitación (actualizar status: true/false)
+api.put(
+    '/delete/:id', 
     deleteHabitacion
 )
+
+api.put(
+    '/reservar/:id',
+    reservarHabitacion
+);
 
 export default api

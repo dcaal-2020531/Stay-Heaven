@@ -29,13 +29,13 @@ api.get(
 
 // Actualizar admin plataforma
 api.put(
-    '/:id', 
+    '/update/:id', 
     updateAdminPlataforma
 )
 
-// Eliminar admin plataforma
-api.delete(
-    '/:id', 
+// Eliminar admin plataforma (actualizar status: true/false)
+api.put(
+    '/status/:id', 
     deleteAdminPlataforma
 )
 

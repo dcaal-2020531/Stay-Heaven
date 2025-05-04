@@ -29,13 +29,13 @@ api.get(
 
 // Actualizar admin hotel
 api.put(
-    '/:id', 
+    '/update/:id', 
     updateAdminHotel
 )
 
-// Eliminar admin hotel
-api.delete(
-    '/:id', 
+// Eliminar admin hotel (actualizar status: true/false)
+api.put(
+    '/status/:id', 
     deleteAdminHotel
 )
 

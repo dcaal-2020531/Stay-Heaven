@@ -14,7 +14,7 @@ export const createAdminHotel = async (req, res) => {
     } catch (err) {
         res.status(500).json(
             { 
-                message: 'Error creating admin', 
+                message: 'Error creando admin', 
                 error: err.message 
             }
         )
@@ -29,7 +29,7 @@ export const getAllAdminsHotel = async (req, res) => {
     } catch (err) {
         res.status(500).json(
             { 
-                message: 'Error getting admins', 
+                message: 'Error obteniendo admins', 
                 error: err.message 
             }
         )
@@ -47,7 +47,7 @@ export const getAdminHotelById = async (req, res) => {
     } catch (err) {
         res.status(500).json(
             { 
-                message: 'Error getting admin', 
+                message: 'Error obteniendo admin', 
                 error: err.message 
             }
         )
@@ -77,14 +77,14 @@ export const updateAdminHotel = async (req, res) => {
     } catch (err) {
         res.status(500).json(
             { 
-                message: 'Error updating admin', 
+                message: 'Error actualizando admin', 
                 error: err.message 
             }
         )
     }
 }
 
-// Eliminar admin hotel
+// Eliminar admin hotel (actualizar status: true/false)
 export const deleteAdminHotel = async (req, res) => {
     try {
         const deleted = await AdminHotel.findByIdAndUpdate(
@@ -101,7 +101,7 @@ export const deleteAdminHotel = async (req, res) => {
     } catch (err) {
         res.status(500).json(
             { 
-                message: 'Error deleting admin', 
+                message: 'Error eliminando admin', 
                 error: err.message 
             }
         )

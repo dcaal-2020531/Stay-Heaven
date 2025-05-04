@@ -14,7 +14,7 @@ export const createAdminPlataforma = async (req, res) => {
     } catch (err) {
         res.status(500).json(
             { 
-                message: 'Error creating admin', 
+                message: 'Error creando admin', 
                 error: err.message 
             }
         )
@@ -29,7 +29,7 @@ export const getAllAdminsPlataforma = async (req, res) => {
     } catch (err) {
         res.status(500).json(
             { 
-                message: 'Error getting admins', 
+                message: 'Error obteniendo admins', 
                 error: err.message 
             }
         )
@@ -47,7 +47,7 @@ export const getAdminPlataformaById = async (req, res) => {
     } catch (err) {
         res.status(500).json(
             { 
-                message: 'Error getting admin', 
+                message: 'Error obteniendo admin', 
                 error: err.message 
             }
         )
@@ -77,14 +77,14 @@ export const updateAdminPlataforma = async (req, res) => {
     } catch (err) {
         res.status(500).json(
             { 
-                message: 'Error updating admin', 
+                message: 'Error actualizando admin', 
                 error: err.message 
             }
         )
     }
 }
 
-// Eliminar admin Plataforma
+// Eliminar admin Plataforma (actualizar status: true/false)
 export const deleteAdminPlataforma = async (req, res) => {
     try {
         const deleted = await AdminPlataforma.findByIdAndUpdate(
@@ -101,7 +101,7 @@ export const deleteAdminPlataforma = async (req, res) => {
     } catch (err) {
         res.status(500).json(
             { 
-                message: 'Error deleting admin', 
+                message: 'Error eliminando admin', 
                 error: err.message 
             }
         )

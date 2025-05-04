@@ -81,31 +81,78 @@ export const updateHabitacion = async (req, res) => {
     }
 }
 
-// Eliminar habitación (soft delete: marcar como no disponible)
+// Eliminar habitación (actualizar status: true/false)
 export const deleteHabitacion = async (req, res) => {
     try {
-        const updated = await Habitacion.findByIdAndUpdate(
-            req.params.id,
-            { isAvailable: false },
+        const deleted = await Habitacion.findByIdAndUpdate(
+            req.params.id, 
+            { status: false }, 
             { new: true }
         )
 
-        if (!updated) {
+        if (!deleted) {
             return res.status(404).json({ message: 'Habitación no encontrada' })
         }
 
         res.json(
-            { 
-                message: 'Habitación desactivada', 
-                habitacion: updated 
+            {
+                message: 'Habitación eliminada correctamente',
+                habitacion: deleted
             }
         )
     } catch (err) {
         res.status(500).json(
-            { 
-                message: 'Error al eliminar habitación', 
-                error: err.message 
+            {
+                message: 'Error eliminando habitación',
+                error: err.message
             }
         )
     }
 }
+
+// Reservar habitación (agrega un rango de fechas a availability)
+export const reservarHabitacion = async (req, res) => {
+    try {
+        const { id } = req.params // ID de la habitación
+        const { from, to } = req.body // Fechas a reservar
+
+        const habitacion = await Habitacion.findById(id)
+        if (!habitacion || !habitacion.status) {
+            return res.status(404).json({ message: 'Habitación no encontrada o inactiva' })
+        }
+
+        // Verificar conflicto de fechas
+        const hayConflicto = habitacion.availability.some(
+            rango => {
+                return (
+                    new Date(from) < new Date(rango.to) &&
+                    new Date(to) > new Date(rango.from)
+                )
+            }
+        )
+
+        if (hayConflicto) {
+            return res.status(400).json({ message: 'La habitación no está disponible en esas fechas' })
+        }
+
+        // Agregar la nueva reserva (rango de fechas)
+        habitacion.availability.push({ from, to })
+        await habitacion.save()
+
+        return res.status(200).json(
+            { 
+                message: 'Reserva realizada con éxito', 
+                habitacion 
+            }
+
+        )
+    } catch (error) {
+        return res.status(500).json(
+            { 
+                message: 'Error al reservar habitación', 
+                error 
+            }
+        )
+    }
+}
+
