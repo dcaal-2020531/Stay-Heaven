@@ -110,6 +110,7 @@ export const deleteHabitacion = async (req, res) => {
     }
 }
 
+// Ya no se utilizará porque se creó el CRUD de reserva
 /*
 // Reservar habitación (agrega un rango de fechas a availability)
 export const reservarHabitacion = async (req, res) => {

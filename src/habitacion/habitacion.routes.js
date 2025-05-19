@@ -39,7 +39,9 @@ api.put(
     '/delete/:id', 
     deleteHabitacion
 )
-/*
+
+// Ya no se utilizará porque se creó el CRUD de reserva
+/* 
 api.put(
     '/reservar/:id',
     reservarHabitacion
