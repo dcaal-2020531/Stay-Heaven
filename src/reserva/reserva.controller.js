@@ -79,6 +79,7 @@ export const obtenerReservas = async (req, res) => {
         const reservas = await Reserva.find(query).populate('habitacion usuario hotel')
 
         res.json(reservas)
+
     } catch (error) {
         return res.status(500).json(
             { message: 'Error al obtener reservas', error }
@@ -96,6 +97,7 @@ export const obtenerReservaPorId = async (req, res) => {
         }
 
         res.json(reserva)
+
     } catch (error) {
         return res.status(500).json(
             { message: 'Error al obtener reserva', error }
@@ -117,6 +119,7 @@ export const cancelarReserva = async (req, res) => {
         await reserva.save()
 
         res.json({ message: 'Reserva cancelada', reserva })
+
     } catch (error) {
         return res.status(500).json(
             { message: 'Error al cancelar reserva', error }
