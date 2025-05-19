@@ -110,6 +110,7 @@ export const deleteHabitacion = async (req, res) => {
     }
 }
 
+/*
 // Reservar habitación (agrega un rango de fechas a availability)
 export const reservarHabitacion = async (req, res) => {
     try {
@@ -155,4 +156,4 @@ export const reservarHabitacion = async (req, res) => {
         )
     }
 }
-
+*/

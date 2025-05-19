@@ -39,10 +39,11 @@ api.put(
     '/delete/:id', 
     deleteHabitacion
 )
-
+/*
 api.put(
     '/reservar/:id',
     reservarHabitacion
 );
+*/
 
 export default api

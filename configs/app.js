@@ -8,6 +8,7 @@ import hotelRoutes from '../src/hotel/hotel.routes.js'
 import adminPlataformaRoutes from '../src/adminPlataforma/adminPlataforma.routes.js'
 import adminHotelRoutes from '../src/adminHotel/adminHotel.routes.js'
 import habitacionRoutes from '../src/habitacion/habitacion.routes.js'
+import reservaRoutes from '../src/reserva/reserva.routes.js'
 
 const configs = (app)=>{
     app.use(express.json()) //Aceptar y enviar datos en JSON
@@ -22,6 +23,7 @@ const configs = (app)=>{
         app.use('/adminPlataforma', adminPlataformaRoutes)
         app.use('/adminHotel', adminHotelRoutes)
         app.use('/habitacion', habitacionRoutes)
+        app.use('/reserva', reservaRoutes)
     }
 
 export const initServer = async()=>{
