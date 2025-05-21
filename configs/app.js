@@ -6,6 +6,7 @@ import helmet from 'helmet' //Seguridad para HTTP
 import cors from 'cors'
 import hotelRoutes from '../src/hotel/hotel.routes.js'
 import clientRoutes from '../src/Client/client.routes.js'
+import eventRoutes from '../src/Events/events.routes.js'
 
 const configs = (app)=>{
     app.use(express.json()) //Aceptar y enviar datos en JSON
@@ -18,6 +19,7 @@ const configs = (app)=>{
     const routes = (app)=>{
         app.use('/', hotelRoutes)
         app.use('/client', clientRoutes)
+        app.use('/event', eventRoutes)
     }
 
 export const initServer = async()=>{

@@ -9,9 +9,9 @@ export const getAll = async (req,res) =>{
     try {
         const hotels = await Hotel.find()
         if (hotels.length === 0) {
-            return res.status(404).send({ message: 'Students not found' });
+            return res.status(404).send({ message: 'Hotel not found' });
         }
-        return res.send({ message: 'Students found', students });
+        return res.send({ message: 'Hotel found', hotels });
     } catch (err) {
     console.error(err);
     return res.status(500).send({message: "Error retrivering Hotels"})        
