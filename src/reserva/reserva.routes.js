@@ -3,6 +3,7 @@ import {
     crearReserva,
     obtenerReservas,
     obtenerReservaPorId,
+    confirmarReserva,
     cancelarReserva
 } from './reserva.controller.js'
 
@@ -16,6 +17,9 @@ api.get('/', obtenerReservas)
 
 // Obtener una reserva específica por su ID
 api.get('/:id', obtenerReservaPorId)
+
+// Confirmar una reserva (solo admin hotel autorizado)
+api.put('/confirmar/:id', confirmarReserva)
 
 // Cancelar una reserva
 api.put('/cancelar/:id', cancelarReserva)

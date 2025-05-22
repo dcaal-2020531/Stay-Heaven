@@ -1,5 +1,6 @@
 import Reserva from './reserva.model.js'
 import Habitacion from '../habitacion/habitacion.model.js'
+import AdminHotel from '../adminHotel/adminHotel.model.js'
 
 // Crear una nueva reserva
 export const crearReserva = async (req, res) => {
@@ -78,7 +79,20 @@ export const obtenerReservas = async (req, res) => {
 
         const reservas = await Reserva.find(query).populate('habitacion usuario hotel')
 
-        res.json(reservas)
+        const hoy = new Date()
+
+        // Verificar y actualizar estado a "finalizada" si aplica
+        const reservasActualizadas = await Promise.all(
+            reservas.map(async (reserva) => {
+                if (reserva.estado === 'confirmada' && new Date(reserva.toDate) < hoy) {
+                    reserva.estado = 'finalizada'
+                    await reserva.save()
+                }
+                return reserva
+            })
+        )
+
+        res.json(reservasActualizadas)
 
     } catch (error) {
         return res.status(500).json(
@@ -96,12 +110,58 @@ export const obtenerReservaPorId = async (req, res) => {
             return res.status(404).json({ message: 'Reserva no encontrada' })
         }
 
+        const hoy = new Date()
+        if (reserva.estado === 'confirmada' && new Date(reserva.toDate) < hoy) {
+            reserva.estado = 'finalizada'
+            await reserva.save()
+        }
+
         res.json(reserva)
 
     } catch (error) {
         return res.status(500).json(
             { message: 'Error al obtener reserva', error }
         )
+    }
+}
+
+// Confirmar una reserva (solo puede hacerlo admin de hotel)
+export const confirmarReserva = async (req, res) => {
+    try {
+        const reservaId = req.params.id
+        const adminHotelId = req.user?.id // Asumiendo que ya aplicás middleware de autenticación
+
+        // Traer el admin con su hotel
+        const admin = await AdminHotel.findById(adminHotelId)
+        if (!admin || !admin.status) {
+            return res.status(403).json({ message: 'Admin no autorizado' })
+        }
+
+        const reserva = await Reserva.findById(reservaId)
+        if (!reserva) {
+            return res.status(404).json({ message: 'Reserva no encontrada' })
+        }
+
+        // Verificar que la reserva pertenezca al hotel del admin
+        if (reserva.hotel.toString() !== admin.hotel.toString()) {
+            return res.status(403).json({ message: 'No puedes confirmar reservas de otros hoteles' })
+        }
+
+        if (reserva.estado !== 'pendiente') {
+            return res.status(400).json({ message: 'Solo se pueden confirmar reservas pendientes' })
+        }
+
+        // Confirmar
+        reserva.estado = 'confirmada'
+        await reserva.save()
+
+        res.json({ message: 'Reserva confirmada con éxito', reserva })
+
+    } catch (error) {
+        return res.status(500).json({
+            message: 'Error al confirmar reserva',
+            error: error.message
+        })
     }
 }
 
