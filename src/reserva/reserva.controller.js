@@ -14,7 +14,7 @@ export const crearReserva = async (req, res) => {
             precioTotal 
         } = req.body
 
-        // Verificar que la habitación esté disponible en las fechas
+        // Verificar que la habitación exista y esté activa
         const habitacion = await Habitacion.findById(habitacionId)
         if (!habitacion || !habitacion.status) {
             return res.status(404).json(
@@ -22,18 +22,35 @@ export const crearReserva = async (req, res) => {
             )
         }
 
-        const hayConflicto = habitacion.availability.some(
-            rango => {
-                return (
-                    new Date(fromDate) < new Date(rango.to) &&
-                    new Date(toDate) > new Date(rango.from)
-                )
-            }  
-        )
+        // Verificar que las fechas caen dentro de la disponibilidad general
+        const estaDisponible = habitacion.availability.some(rango => {
+            return (
+                new Date(fromDate) >= new Date(rango.from) &&
+                new Date(toDate) <= new Date(rango.to)
+            )
+        })
 
-        if (hayConflicto) {
+        if (!estaDisponible) {
             return res.status(400).json(
-                { message: 'La habitación no está disponible en esas fechas' }
+                { message: 'Las fechas no están dentro del rango de disponibilidad de la habitación' }
+            )
+        }
+
+        // Verificar que no haya conflictos con otras reservas confirmadas o pendientes
+        const reservasConflicto = await Reserva.find({
+            habitacion: habitacionId,
+            estado: { $in: ['pendiente', 'confirmada'] },
+            $or: [
+                {
+                    fromDate: { $lt: new Date(toDate) },
+                    toDate: { $gt: new Date(fromDate) }
+                }
+            ]
+        })
+
+        if (reservasConflicto.length > 0) {
+            return res.status(400).json(
+                { message: 'La habitación ya está reservada en esas fechas' }
             )
         }
 
@@ -41,7 +58,7 @@ export const crearReserva = async (req, res) => {
         const nuevaReserva = new Reserva({
             habitacion: habitacionId,
             usuario: usuarioId,
-            hotel: habitacion.hotel,
+            hotel: habitacion.hotel, // Lo obtenemos de la habitación
             fromDate,
             toDate,
             serviciosAdicionales,
@@ -50,16 +67,10 @@ export const crearReserva = async (req, res) => {
 
         await nuevaReserva.save()
 
-        // Agregar la reserva al array de disponibilidad de la habitación
-        habitacion.availability.push({ from: fromDate, to: toDate })
-        await habitacion.save()
-        
-        return res.status(201).json(
-            { 
-                message: 'Reserva realizada con éxito', 
-                reserva: nuevaReserva 
-            }
-        )
+        return res.status(201).json({ 
+            message: 'Reserva realizada con éxito', 
+            reserva: nuevaReserva 
+        })
 
     } catch (error) {
         return res.status(500).json(

@@ -109,3 +109,49 @@ export const deleteHabitacion = async (req, res) => {
         )
     }
 }
+
+// Actualizar disponibilidad general de una habitación (solo puede hacerlo admin de hotel)
+export const updateDisponibilidadHabitacion = async (req, res) => {
+    try {
+        const habitacionId = req.params.id
+        const { availability } = req.body
+        const adminHotelId = req.user?.id // Suponiendo autenticación activa
+
+        // Obtener habitación
+        const habitacion = await Habitacion.findById(habitacionId).populate('hotel')
+        if (!habitacion) {
+            return res.status(404).json(
+                { message: 'Habitación no encontrada' }
+            )
+        }
+
+        // Verificar que el admin sea del mismo hotel
+        const admin = await AdminHotel.findById(adminHotelId)
+        if (!admin || !admin.status || habitacion.hotel.toString() !== admin.hotel.toString()) {
+            return res.status(403).json(
+                { message: 'No tienes permiso para modificar esta habitación' }
+            )
+        }
+
+        // Validar formato de availability
+        if (!Array.isArray(availability) || availability.some(r => !r.from || !r.to)) {
+            return res.status(400).json(
+                { message: 'Formato de disponibilidad inválido' }
+            )
+        }
+
+        // Actualizar
+        habitacion.availability = availability
+        await habitacion.save()
+
+        res.json({
+            message: 'Disponibilidad actualizada con éxito',
+            habitacion
+        })
+    } catch (err) {
+        res.status(500).json({
+            message: 'Error al actualizar disponibilidad',
+            error: err.message
+        })
+    }
+}
