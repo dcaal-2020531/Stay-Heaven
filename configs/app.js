@@ -7,6 +7,12 @@ import cors from 'cors' //ACCESO AL API
 import empleadoRoutes from '../src/empleado/empleado.routes.js'
 import facturaRoutes from '../src/factura/factura.routes.js'
 import login from  '../src/auth/auth.routes.js'
+import hotelRoutes from '../src/hotel/hotel.routes.js'
+import habitacionRoutes from '../src/habitacion/habitacion.routes.js'
+import clientRoutes from '../src/Client/client.routes.js'
+import adminPlataformaRoutes from '../src/adminPlataforma/adminPlataforma.routes.js'
+import adminHotelRoutes from '../src/adminHotel/adminHotel.routes.js'
+
 
 const configs = (app)=>{
     app.use(express.json())
@@ -20,6 +26,11 @@ const routes = (app)=>{
     app.use('/v1/empleado', empleadoRoutes)
     app.use('/v1/factura', facturaRoutes)
     app.use('/v1/login', login)
+    app.use('/v1/hotel', hotelRoutes)
+    app.use('/v1/habitacion', habitacionRoutes)
+    app.use('/v1/client', clientRoutes)
+    app.use('/v1/adminPlataforma', adminPlataformaRoutes)
+    app.use('/v1/adminHotel', adminHotelRoutes)
 }
 
 //ES NO ACEPTA EXPORTS CON .
