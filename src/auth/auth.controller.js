@@ -1,4 +1,4 @@
-import Cliente from '../cliente/cliente.model.js'
+import Cliente from '../Client/client.model.js'
 import { checkPassword, encrypt } from '../../utils/encrypt.js'
 import { generateJwt } from '../../utils/jwt.js'
 

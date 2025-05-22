@@ -1,4 +1,4 @@
-import Cliente from '../src/cliente/cliente.model.js'
+import Cliente from '../src/Client/client.model.js'
 
 export const existUsername = async(username)=>{
     const alreadyUsername = await Cliente.findOne({username})
