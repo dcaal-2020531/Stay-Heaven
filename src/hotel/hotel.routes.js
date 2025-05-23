@@ -9,4 +9,5 @@ api.delete('/:HotelId', deleteHotel)
 api.put('/:HotelId',updateHoteles)
 api.get('/getall', getAll)
 
+
 export default api

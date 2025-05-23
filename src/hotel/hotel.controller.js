@@ -9,9 +9,15 @@ export const getAll = async (req,res) =>{
     try {
         const hotels = await Hotel.find()
         if (hotels.length === 0) {
+<<<<<<< HEAD
             return res.status(404).send({ message: 'Hotel not found' });
         }
         return res.send({ message: 'Hotel found', hotels });
+=======
+            return res.status(404).send({ message: 'Students not found' });
+        }
+        return res.send({ message: 'Students found', students });
+>>>>>>> 86e7ab6ce144cc14158c2684e5aeaabd5ab4270f
     } catch (err) {
     console.error(err);
     return res.status(500).send({message: "Error retrivering Hotels"})        
@@ -76,4 +82,8 @@ export const deleteHotel = async (req, res) => {
         console.error(err);
         return res.status(500).send({ message: 'Error deleting Hotel', err });
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 86e7ab6ce144cc14158c2684e5aeaabd5ab4270f

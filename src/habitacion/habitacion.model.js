@@ -34,11 +34,7 @@ const habitacionSchema = Schema(
             type: String,
             default: ''
         },
-        // Esto en lugar de reserva
-        isAvailable: { 
-            type: Boolean,
-            default: true
-        },
+        // SI o NO esta Disponible 
         availability: [
             {
                 from: { type: Date, required: true },
@@ -48,6 +44,10 @@ const habitacionSchema = Schema(
         images: {
             type: [String], // URLs o rutas a las imágenes
             default: []
+        },
+        status: {
+            type: Boolean,
+            default: true
         }
     },
     {

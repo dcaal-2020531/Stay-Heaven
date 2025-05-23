@@ -13,6 +13,7 @@ import clientRoutes from '../src/Client/client.routes.js'
 import eventRoutes from '../src/Events/events.routes.js'
 import adminHotelRoutes from '../src/adminHotel/adminHotel.routes.js'
 import adminPlataformaRoutes from '../src/adminPlataforma/adminPlataforma.routes.js'
+import reservaRoutes from '../src/reserva/reserva.routes.js'
 
 
 const configs = (app)=>{
@@ -33,7 +34,7 @@ const routes = (app)=>{
     app.use('/v1/adminPlataforma', adminPlataformaRoutes)
     app.use('/v1/adminHotel', adminHotelRoutes)
     app.use('/v1/event', eventRoutes)
-
+    app.use('/v1/reserva', reservaRoutes)
 }
 
 
@@ -43,11 +44,12 @@ export const initServer = async()=>{
     const app = express() //INSTANCIA DE EXPRESS
     try{
         configs(app) //APLICAR CONFIGURACIONES DEL SERVIDOR 
+
         routes(app)
         app.listen(process.env.PORT)
         console.log(`Server running in port ${process.env.PORT}`)
     }catch(err){
         console.error('Server init failed', err)
     }
-}
 
+}
