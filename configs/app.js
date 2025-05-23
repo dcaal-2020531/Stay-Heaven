@@ -10,8 +10,9 @@ import login from  '../src/auth/auth.routes.js'
 import hotelRoutes from '../src/hotel/hotel.routes.js'
 import habitacionRoutes from '../src/habitacion/habitacion.routes.js'
 import clientRoutes from '../src/Client/client.routes.js'
-import adminPlataformaRoutes from '../src/adminPlataforma/adminPlataforma.routes.js'
+import eventRoutes from '../src/Events/events.routes.js'
 import adminHotelRoutes from '../src/adminHotel/adminHotel.routes.js'
+import adminPlataformaRoutes from '../src/adminPlataforma/adminPlataforma.routes.js'
 
 
 const configs = (app)=>{
@@ -31,7 +32,11 @@ const routes = (app)=>{
     app.use('/v1/client', clientRoutes)
     app.use('/v1/adminPlataforma', adminPlataformaRoutes)
     app.use('/v1/adminHotel', adminHotelRoutes)
+    app.use('/v1/event', eventRoutes)
+
 }
+
+
 
 //ES NO ACEPTA EXPORTS CON .
 export const initServer = async()=>{
