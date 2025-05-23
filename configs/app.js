@@ -14,6 +14,7 @@ import eventRoutes from '../src/Events/events.routes.js'
 import adminHotelRoutes from '../src/adminHotel/adminHotel.routes.js'
 import adminPlataformaRoutes from '../src/adminPlataforma/adminPlataforma.routes.js'
 import reservaRoutes from '../src/reserva/reserva.routes.js'
+import statsRoutes from '../src/stats/stats.routes.js'
 
 
 const configs = (app)=>{
@@ -35,6 +36,7 @@ const routes = (app)=>{
     app.use('/v1/adminHotel', adminHotelRoutes)
     app.use('/v1/event', eventRoutes)
     app.use('/v1/reserva', reservaRoutes)
+    app.use('/v1/stats', statsRoutes)
 }
 
 
