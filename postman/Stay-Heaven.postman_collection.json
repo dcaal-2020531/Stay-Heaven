@@ -1,0 +1,1661 @@
+{
+	"info": {
+		"_postman_id": "da8f5209-3ad5-4724-b897-190025322f7b",
+		"name": "Stay-Heaven",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37951957"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Get Cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/client",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "oroxon",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Siquin tumax",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mayacachondo123@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "guatemala",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Quiche",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:1992/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "oroxon",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Siquin yut tyu",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mayacachondo123@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "guatemala",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Quiche",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1992/6813d4daa99f9154f9549a22",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"6813d4daa99f9154f9549a22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/client/6813d4daa99f9154f9549a22",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"client",
+								"6813d4daa99f9154f9549a22"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hoteles",
+			"item": [
+				{
+					"name": "Crear Hotel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "name",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Oroxon Hotel",
+									"type": "text"
+								},
+								{
+									"key": "addres",
+									"value": "Boulevard Oroxon",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "oroxon@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Guatemala",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Quiche",
+									"type": "text"
+								},
+								{
+									"key": "schedule",
+									"value": "10 Am",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:1992/v1/hotel/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"v1",
+								"hotel",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver Hotel",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1992/v1/hotel/getall",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"v1",
+								"hotel",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cliente Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Hoteles Delujo",
+									"type": "text"
+								},
+								{
+									"key": "addres",
+									"value": "12 calle avenida en sueño",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "hoteles@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "guatemala",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Quiche",
+									"type": "text"
+								},
+								{
+									"key": "schedule",
+									"value": "11 AM",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1992/v1/hotel/6813d4daa99f9154f9549a22",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"v1",
+								"hotel",
+								"6813d4daa99f9154f9549a22"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cliente Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/v1/hotel/6813d4daa99f9154f9549a22",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"v1",
+								"hotel",
+								"6813d4daa99f9154f9549a22"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "evento",
+			"item": [
+				{
+					"name": "GET Test",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:1992/event/getAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"event",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Create Evento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombreEvento",
+									"value": "Boda Real",
+									"type": "text"
+								},
+								{
+									"key": "tipoEvento",
+									"value": "boda",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "Una ceremonia formal",
+									"type": "text"
+								},
+								{
+									"key": "fechaInicio",
+									"value": "2025-06-20T10:00:00.000Z",
+									"type": "text"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2025-06-20T18:00:00.000Z",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "682d463c825eff94b3e57c5c",
+									"type": "text"
+								},
+								{
+									"key": "recursos",
+									"value": "[\n        {\n            \"nombreRecurso\": \"Sillas\",\n            \"cantidad\": 100\n        }\n    ],\n    \"serviciosAdicionales\": [\n        {\n            \"nombreServicio\": \"Catering\",\n            \"descripcionServicio\": \"Buffet gourmet\"\n        }\n    ]",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:1992/v1/event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"v1",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Update Evento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombreEvento",
+									"value": "Evento Actualizado",
+									"type": "text"
+								},
+								{
+									"key": "tipoEvento",
+									"value": "reunión",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "Actualización de detalles",
+									"type": "text"
+								},
+								{
+									"key": "fechaInicio",
+									"value": "2025-07-01T09:00:00.000Z",
+									"type": "text"
+								},
+								{
+									"key": "fechaFin",
+									"value": "2025-07-01T15:00:00.000Z",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:1992/v1/event/682ff4ff36e409302f78325e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"v1",
+								"event",
+								"682ff4ff36e409302f78325e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Evento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1992/v1/event/682ff4ff36e409302f78325e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"v1",
+								"event",
+								"682ff4ff36e409302f78325e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Agregar Cliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Juan\",\r\n  \"surname\": \"Pérez\",\r\n  \"email\": \"juan.perez@example.com\",\r\n  \"phone\": \"1234567890\",\r\n  \"country\": \"Guatemala\",\r\n  \"city\": \"Guatemala City\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:1992/client",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:1992/client/getall",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"client",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "adminHotel",
+			"item": [
+				{
+					"name": "create AdminHotel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Diego",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Caal",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "dcaal",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "dcaal@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "99992222",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "68175794f5d664a03c93c3ad",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1992/adminHotel",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminHotel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create AdminHotel Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Diego",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Barrera",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "dbarrera",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "dbarrera@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "chuchomaya",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "34345656",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "68175885f5d664a03c93c3b1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1992/adminHotel",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminHotel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll AdminsHotel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/adminHotel",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminHotel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get AdminHotel byID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/adminHotel/681757c6f5d664a03c93c3af",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminHotel",
+								"681757c6f5d664a03c93c3af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update AdminHotel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Juan",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Perez",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "jperez",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "jperez@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "xdxdxd",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "68175885f5d664a03c93c3b1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1992/adminHotel/update/681758b9f5d664a03c93c3b3",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminHotel",
+								"update",
+								"681758b9f5d664a03c93c3b3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activar/desactivar AdminHotel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "false",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1992/adminHotel/status/681757c6f5d664a03c93c3af",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminHotel",
+								"status",
+								"681757c6f5d664a03c93c3af"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "adminPlataforma",
+			"item": [
+				{
+					"name": "create AdminPlat.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Jose",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Oroxon",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "joroxon",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "joroxon@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "22225555",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1992/adminPlataforma",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminPlataforma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create AdminPlat. Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Alexander",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Borja",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "aborja",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "aborja@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "33333333",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "44445555",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1992/adminPlataforma",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminPlataforma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll AdminsPlat.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/adminPlataforma",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminPlataforma"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get AdminPlat. byID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/adminPlataforma/68174f26c8511482021ac0a3",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminPlataforma",
+								"68174f26c8511482021ac0a3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update AdminPlat.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Jose",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Oroxon",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "joroxon",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "joroxon@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "77778888",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1992/adminPlataforma/update/68174f26c8511482021ac0a3",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminPlataforma",
+								"update",
+								"68174f26c8511482021ac0a3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activar/desactivar AdminPlat.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "false",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:1992/adminPlataforma/status/68174f26c8511482021ac0a3",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"adminPlataforma",
+								"status",
+								"68174f26c8511482021ac0a3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Habitación",
+			"item": [
+				{
+					"name": "create Habitación",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hotel\": \"682ef33711fcae94a07757b7\",\r\n    \"roomNumber\": \"101\",\r\n    \"type\": \"doble\",\r\n    \"capacity\": 2,\r\n    \"pricePerNight\": 100,\r\n    \"amenities\": [\"WiFi\", \"TV\", \"Aire acondicionado\"],\r\n    \"description\": \"Habitación con vista al mar\",\r\n    \"availability\": [\r\n        { \"from\": \"2025-06-01T00:00:00Z\", \"to\": \"2025-06-10T00:00:00Z\" }\r\n    ],\r\n    \"images\": [\"imagen1.jpg\"]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1992/habitacion",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"habitacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create Habitación Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hotel\": \"68175885f5d664a03c93c3b1\",\r\n    \"roomNumber\": \"502\",\r\n    \"type\": \"individual\",\r\n    \"capacity\": 1,\r\n    \"pricePerNight\": 50,\r\n    \"amenities\": [\"WiFi\", \"TV\", \"Aire acondicionado\"],\r\n    \"description\": \"Habitación con cama grande\",\r\n    \"availability\": [\r\n        { \"from\": \"2025-06-01T00:00:00Z\", \"to\": \"2025-06-10T00:00:00Z\" }\r\n    ],\r\n    \"images\": [\"imagen1.jpg\"]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1992/habitacion",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"habitacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll Habitaciones",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/habitacion",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"habitacion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Habitación byID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/habitacion/6817a83237302aea38757abe",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"habitacion",
+								"6817a83237302aea38757abe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Habitación",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hotel\": \"68175794f5d664a03c93c3ad\",\r\n    \"roomNumber\": \"101\",\r\n    \"type\": \"familiar\",\r\n    \"capacity\": 4,\r\n    \"pricePerNight\": 100,\r\n    \"amenities\": [\"WiFi\", \"TV\", \"Aire acondicionado\"],\r\n    \"description\": \"Habitación con vista al mar\",\r\n    \"availability\": [\r\n        { \"from\": \"2025-06-01T00:00:00Z\", \"to\": \"2025-06-10T00:00:00Z\" }\r\n    ],\r\n    \"images\": [\"imagen1.jpg\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1992/habitacion/update/6817a83237302aea38757abe",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"habitacion",
+								"update",
+								"6817a83237302aea38757abe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "activar/desactivar Habitación",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1992/habitacion/delete/6817a83d37302aea38757ac1",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"habitacion",
+								"delete",
+								"6817a83d37302aea38757ac1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Habitación Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hotel\": \"68175794f5d664a03c93c3ad\",\r\n    \"roomNumber\": \"101\",\r\n    \"type\": \"familiar\",\r\n    \"capacity\": 4,\r\n    \"pricePerNight\": 100,\r\n    \"amenities\": [\"WiFi\", \"TV\", \"Aire acondicionado\"],\r\n    \"description\": \"Habitación con vista al mar\",\r\n    \"availability\": [\r\n        { \"from\": \"2025-06-01T00:00:00Z\", \"to\": \"2025-06-10T00:00:00Z\" }\r\n    ],\r\n    \"images\": [\"imagen1.jpg\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1992/habitacion/update/6817a83237302aea38757abe",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"habitacion",
+								"update",
+								"6817a83237302aea38757abe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reserva",
+			"item": [
+				{
+					"name": "create Reserva",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"habitacionId\": \"682ef35f11fcae94a07757b9\",\r\n  \"usuarioId\": \"682ef37711fcae94a07757bc\",\r\n  \"fromDate\": \"2025-06-01\",\r\n  \"toDate\": \"2025-06-10\",\r\n  \"serviciosAdicionales\": [\"Desayuno\", \"Spa\"],\r\n  \"precioTotal\": 250\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1992/reserva",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"reserva"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll  Reservas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/reserva",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"reserva"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get  Reserva byID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:1992/reserva/682f01b18f22c816bdc3a330",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"reserva",
+								"682f01b18f22c816bdc3a330"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar Reserva",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1992/reserva/cancelar/682f01b18f22c816bdc3a330",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"reserva",
+								"cancelar",
+								"682f01b18f22c816bdc3a330"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirmar Reserva",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:1992/reserva/cancelar/6817a83d37302aea38757ac1",
+							"host": [
+								"localhost"
+							],
+							"port": "1992",
+							"path": [
+								"reserva",
+								"cancelar",
+								"6817a83d37302aea38757ac1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
