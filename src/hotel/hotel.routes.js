@@ -4,7 +4,7 @@ import { deleteHotel, getAll, save, test, updateHoteles } from './hotel.controll
 const api = Router();
 
 api.get('/test', test)
-api.post('/', save)
+api.post('/createHotel', save)
 api.delete('/:HotelId', deleteHotel)
 api.put('/:HotelId',updateHoteles)
 api.get('/getall', getAll)
