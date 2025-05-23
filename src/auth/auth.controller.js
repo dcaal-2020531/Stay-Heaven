@@ -13,7 +13,7 @@ export const register = async(req, res)=>{
         let cliente = new Cliente(data)
 
         cliente.password = await encrypt(cliente.password)
-        cliente.role = 'CLIENT'
+        
 
         await cliente.save()
         return res.send({message: `Registered successfully `})
@@ -25,9 +25,12 @@ export const register = async(req, res)=>{
 
 export const login = async(req, res)=>{
     try{
-        let { username, password } = req.body
-        let cliente = await Cliente.findOne({username}) 
+        let { email, password } = req.body
+        let cliente = await Cliente.findOne({email}) 
+       
         if(cliente && await checkPassword(cliente.password, password)) {
+           
+           
             let loggedCliente = { 
                 uid: cliente._id,
                 name: cliente.name,

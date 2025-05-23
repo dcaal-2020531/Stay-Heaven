@@ -15,17 +15,29 @@ const clientSchema = Schema(
             required: [true, 'Email is required'],
             unique: true
         },
+        password:{
+            type: String,
+            required: [true, 'Password is required']
+        },
+        birthdate: {
+            type: Date,
+            required: [true, 'Birthdate is required']
+        },
         phone: {
             type: String,
             required: [true, 'Phone is required']
         },
-        country: {
+        country:{
             type: String,
             required: [true, 'Country is required']
         },
-        city: {
+        city:{
             type: String,
             required: [true, 'City is required']
+        },
+        role:{
+            type: String,
+            default: "CLIENT"
         }
     }
 )

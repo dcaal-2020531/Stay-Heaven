@@ -6,8 +6,8 @@ import { deleteFileOnError } from '../../middlewares/delete.file.on.error.js'
 
 const api = Router()
 
-api.post('/register', [ registerValidator, deleteFileOnError ], register )
-api.post('/login', [loginValidator] , login)
-api.get('/test', validateJwt, test)
+api.post('/addClient',  register )
+api.post('/initLogin', login)
+
 
 export default api
