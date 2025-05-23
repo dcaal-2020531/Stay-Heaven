@@ -106,9 +106,11 @@ export const obtenerReservas = async (req, res) => {
         res.json(reservasActualizadas)
 
     } catch (error) {
-        return res.status(500).json(
-            { message: 'Error al obtener reservas', error }
-        )
+        console.error('Error al obtener reservas:', error)
+        return res.status(500).json({
+            message: 'Error al obtener reservas',
+            error: error?.message || 'Error inesperado'
+        })
     }
 }
 
@@ -118,7 +120,9 @@ export const obtenerReservaPorId = async (req, res) => {
         const reserva = await Reserva.findById(req.params.id).populate('habitacion usuario hotel')
 
         if (!reserva) {
-            return res.status(404).json({ message: 'Reserva no encontrada' })
+            return res.status(404).json(
+                { message: 'Reserva no encontrada' }
+            )
         }
 
         const hoy = new Date()
@@ -130,9 +134,11 @@ export const obtenerReservaPorId = async (req, res) => {
         res.json(reserva)
 
     } catch (error) {
-        return res.status(500).json(
-            { message: 'Error al obtener reserva', error }
-        )
+        console.error('Error al obtener reserva por ID:', error)
+        return res.status(500).json({
+            message: 'Error al obtener reserva',
+            error: error?.message || 'Error inesperado'
+        })
     }
 }
 
@@ -140,26 +146,37 @@ export const obtenerReservaPorId = async (req, res) => {
 export const confirmarReserva = async (req, res) => {
     try {
         const reservaId = req.params.id
-        const adminHotelId = req.user?.id // Asumiendo que ya aplicás middleware de autenticación
-
+        const adminHotelId = req.body.adminHotelId || req.query.adminHotelId // ESTO ES TEMPORAL
+        /*
+        const adminHotelId = req.user?.id // Asumiendo que aplicaremos middleware de autenticación
+        */
+       
         // Traer el admin con su hotel
         const admin = await AdminHotel.findById(adminHotelId)
         if (!admin || !admin.status) {
-            return res.status(403).json({ message: 'Admin no autorizado' })
+            return res.status(403).json(
+                { message: 'Admin no autorizado' }
+            )
         }
 
         const reserva = await Reserva.findById(reservaId)
         if (!reserva) {
-            return res.status(404).json({ message: 'Reserva no encontrada' })
+            return res.status(404).json(
+                { message: 'Reserva no encontrada' }
+            )
         }
 
         // Verificar que la reserva pertenezca al hotel del admin
         if (reserva.hotel.toString() !== admin.hotel.toString()) {
-            return res.status(403).json({ message: 'No puedes confirmar reservas de otros hoteles' })
+            return res.status(403).json(
+                { message: 'No puedes confirmar reservas de otros hoteles' }
+            )
         }
 
         if (reserva.estado !== 'pendiente') {
-            return res.status(400).json({ message: 'Solo se pueden confirmar reservas pendientes' })
+            return res.status(400).json(
+                { message: 'Solo se pueden confirmar reservas pendientes' }
+            )
         }
 
         // Confirmar
@@ -176,13 +193,15 @@ export const confirmarReserva = async (req, res) => {
     }
 }
 
-// Cancelar una reserva
+// Cancelar una reserva (Solo para el usuario/cliente)
 export const cancelarReserva = async (req, res) => {
     try {
         const reserva = await Reserva.findById(req.params.id)
 
         if (!reserva) {
-            return res.status(404).json({ message: 'Reserva no encontrada' })
+            return res.status(404).json(
+                { message: 'Reserva no encontrada' }
+            )
         }
 
         // Cambiar estado a cancelada

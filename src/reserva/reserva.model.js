@@ -9,7 +9,7 @@ const reservaSchema = new Schema(
         },
         usuario: { 
             type: Schema.Types.ObjectId, 
-            ref: 'Usuario', 
+            ref: 'Client', 
             required: true 
         },
         hotel: { 
